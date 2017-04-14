@@ -1,0 +1,9 @@
+function [r,g,b,l] = scanColor(sensor_object)
+    % get the average red, green, blue, and reflected light values
+    % for a given marble.
+    scans = [];
+    for x = 1:5
+        scans(x,:) = 
+    end
+    
+end

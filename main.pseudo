@@ -1,0 +1,21 @@
+start conveyor belt
+start checking color to see if there is currently a marble there.
+
+IF (marble at scanner)
+	SCANNER COLOR
+		scan marble
+		categorize marble
+
+	MOTOR KICKER
+		 kick marble
+	RESET KICKER 
+
+	MOTOR CRANE_TOP
+		pick up marble
+	MOTOR CRANE_BOTTOM
+		rotate to proper marble path
+	MOTOR CRANE_TOP
+		put down marble
+	RESET CRANE_TOP
+	RESET CRANE_BOTTOM
+ENDIF

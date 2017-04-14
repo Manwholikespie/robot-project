@@ -1,0 +1,15 @@
+% myev3 = legoev3('Bluetooth','/dev/tty.Ourbrick-SerialPort')
+% colorsensor = colorSensor(myev3)
+
+while true
+    n = length(data) + 1
+    
+    cur_data = scanColor(colorsensor);
+    cur_color = 'white'
+    data(n,:) = [cur_data, cur_color]
+
+    kicker.Speed = 100;
+    start(kicker)
+    pause(1.5)
+    stop(kicker)
+end
