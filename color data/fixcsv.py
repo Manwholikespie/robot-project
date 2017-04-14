@@ -12,7 +12,7 @@ for file in filter(lambda x: '.py' not in x, os.listdir('.')):
     print fileName
 
     f = open(file, 'r')
-    data+=reduce(lambda x,y : x+y, (map(lambda x: fileName+','+x, f.readlines())))
+    data[]reduce(lambda x,y : x+y, (map(lambda x: fileName+','+x, f.readlines())))
     f.close()
 
 f = open('combinedData.csv','w')
