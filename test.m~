@@ -1,8 +1,0 @@
-colorsensor = colorSensor(myev3);
-while true
-    marbleNum = processColor(scanColor(colorsensor));
-    if marbleNum = 13
-    end
-    
-    pause(0.5)
-end
