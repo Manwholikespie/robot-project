@@ -11,16 +11,17 @@ while isRed
     % check to make sure the R channel in the RGB is 3x more potent
     % than the other channels.
     c_data = readColorRGB(mycolorsensor);
-    isRed = (c_data(1) > 3*c_data(2)) || (c_data(1) > 3*c_data(3));
+    isRed = ((c_data(1) > 3*c_data(2)) || (c_data(1) > 3*c_data(3)) && c_data(1) > 100);
 end
 color_data = [];
 times = [];
+tic
 while ~isRed
     c_data = readColorRGB(mycolorsensor);
     color_data = [color_data, sum(c_data)];
-    isRed = (c_data(1) > 3*c_data(2)) || (c_data(1) > 3*c_data(3));
+    isRed = ((c_data(1) > 3*c_data(2)) || (c_data(1) > 3*c_data(3)) && c_data(1) > 100);
 end
-moredatatests(color_data)
-plottests(color_data)
-
+timeElapsed=toc
 stop(m) % we have reached the barcode. We may begin scanning.
+% moredatatests(color_data)
+plottests

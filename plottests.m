@@ -1,14 +1,14 @@
 % the indices in the matrix where the height of the scan is near white.
 
-function prediction = plottests(color_data)
-    white = find(color_data > 900);
+% function prediction = plottests(color_data)
+    white = find(color_data > 600);
     whiteLengths = [];
     l = 0;
     
     for x=1:length(white)
         if x == 1
             i = white(x);
-            fprintf('start: %d\n',i);
+%             fprintf('start: %d\n',i);
             ; % we only care about x-1.
         else
             i = white(x);
@@ -16,16 +16,16 @@ function prediction = plottests(color_data)
 
             if ~(i-j == 1)
                 whiteLengths = [whiteLengths, l];
-                fprintf('stop: %d\n',j);
-                fprintf('start: %d\n',i);
+%                 fprintf('stop: %d\n',j);
+%                 fprintf('start: %d\n',i);
                 l = 0;
             else
                 l = l+1;
             end
         end
     end
-    fprintf('stop: %d\n',i);
+%     fprintf('stop: %d\n',i);
     whiteLengths = [whiteLengths, l];
-    whiteLengths./19.283
-    prediction = round(whiteLengths./19.283)
-end
+    whiteLengths./30
+    prediction = round(whiteLengths./30)
+% end

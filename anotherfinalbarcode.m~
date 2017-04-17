@@ -1,0 +1,34 @@
+clearvars -except myev3 mycolorsensor m
+% myev3 = legoev3('USB')
+% m = motor(myev3, 'A')
+% mycolorsensor = colorSensor(myev3)
+m.Speed = -10;
+
+done = false;
+iterations = 0;
+
+while iterations < 4;
+    readyQuestion = input('Ready?\n > ');
+    
+    colorData = [];
+    
+    for x=1:9
+        colorData = [colorData, sum(readColorRGB(mycolorsensor))];
+        if (x == 1) || (x == 2)
+            runMotor(m,0.42)
+        else
+            runMotor(m,0.4)
+        end
+        pause(1)
+    end
+    
+    readbinary(colorData);
+    
+    doneQuestion = input('Does the data look correct?')
+    if (doneQuestion == 0)
+        ; % we have another pass to do.
+    else
+        ite
+    end
+    
+end

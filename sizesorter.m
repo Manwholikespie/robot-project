@@ -4,7 +4,7 @@ function [] = sizesorter(color,myev3)
     myothermotor=motor(myev3,'D'); % arm
 
     if (color == 12)
-        speeds = [35,-30];
+        speeds = [65,-65];
     else
         speeds = [80,-50];
     end
@@ -19,12 +19,12 @@ function [] = sizesorter(color,myev3)
     pause(1.2)
     stop(kickmotor)
 
-    fix_constant = -0.2;
+    fix_constant = 0.15;
 
     if (color==5 | color==6)
         mymotor.Speed=30;
         start(mymotor)
-        pause(1.45+fix_constant) 
+        pause(1.38+fix_constant) 
         stop(mymotor)
 
         myothermotor.Speed=-9;
@@ -68,7 +68,7 @@ function [] = sizesorter(color,myev3)
     elseif (color==3 | color==4)
         mymotor.Speed=30;
         start(mymotor)
-        pause(1.51+fix_constant) 
+        pause(1.55+fix_constant) 
         stop(mymotor)
 
         myothermotor.Speed=-9;
@@ -106,13 +106,13 @@ function [] = sizesorter(color,myev3)
 
         mymotor.Speed=-28;
         start(mymotor)
-        pause(2.0)
+        pause(2.5)
         stop(mymotor)
         pause(1.5)    
     elseif (color==12)
         mymotor.Speed=30;
         start(mymotor)
-        pause(1.86+fix_constant)
+        pause(2.00+fix_constant)
         stop(mymotor)
 
         myothermotor.Speed=-9;
@@ -128,7 +128,7 @@ function [] = sizesorter(color,myev3)
 
         mymotor.Speed=-28;
         start(mymotor)
-        pause(1.85)
+        pause(1.95)
         stop(mymotor)
         pause(1.5)    
     elseif (color==11)
