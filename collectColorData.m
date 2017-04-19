@@ -9,6 +9,7 @@ for x = 1:randi(4)
 end
 
 % kick it out
+speeds = [80,-50];
 kickmotor.Speed=speeds(1);
 start(kickmotor)
 pause(0.6)
@@ -18,5 +19,3 @@ kickmotor.Speed=speeds(2);
 start(kickmotor)
 pause(1.2)
 stop(kickmotor)
-
-speeds = [80,-50];

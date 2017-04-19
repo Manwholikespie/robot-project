@@ -1,29 +1,34 @@
 colorsensor = colorSensor(myev3);
+kickmotor = motor(myev3, 'A');
+
+totalColorDataStats = [];
+for x=1:12
+    totalColorDataStats(x) = 0;
+end
+    
 while true
-    marbleNum = processColor(scanColor(colorsensor));
-    if marbleNum == 13
+    asdf = scanColor(colorsensor);
+    marbleNum = processColor(asdf);
+    if (marbleNum == 13)
+        % currently, I have it ignoring the big reds, as it thinks
+        % the ground is a big red.
+        % TODO: remember to change this back later...
+        
         ; % its looking at the ground.
     else
+        if ((marbleNum == 11) && (asdf(4) < 13))
+            marbleNum = 7;
+        end
+        disp(asdf)
         dispMarbleType(marbleNum);
-        % sizesorter(marbleNum,myev3);
         
-        speeds = [80,-50];
-        kickmotor.Speed=speeds(1);
-        start(kickmotor)
-        pause(0.6)
-        stop(kickmotor)
-
-        kickmotor.Speed=speeds(2);
-        start(kickmotor)
-        pause(1.2)
-        stop(kickmotor)      
+        totalColorDataStats(marbleNum) = totalColorDataStats(marbleNum)+1;
+        sizesorter(marbleNum,myev3);
         
-        break
     end
-    pause(2.5)
 end
 
-a = scanColor(colorsensor)
+% a = scanColor(colorsensor)
 
 for x = 1:length(a)
     fprintf('%.2f ',a(x))
