@@ -1,4 +1,4 @@
-for x = 1:randi(4)
+for x = 1:randi(7)
     n = length(data);
     if n == 0
         data(1,:) = scanColor(colorsensor)

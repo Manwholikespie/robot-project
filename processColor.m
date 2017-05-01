@@ -17,7 +17,8 @@ function marbleNum = processColor(color_vect)
     fclose(f); % close the file.
     
     % call our python script to interprate our vector.
-    !/Users/robert/anaconda/bin/python colorscan.py
+%     !/Users/robert/anaconda/bin/python colorscan.py
+    !/Users/robert/anaconda/bin/python svmscan.py
     
     % read python's response
     f = fopen('scananswer.data','r');
